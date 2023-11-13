@@ -37,6 +37,11 @@ main {
   text-align: center;
 }
 
+.rolls {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
