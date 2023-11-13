@@ -44,6 +44,7 @@ export default function App() {
   function resetDice() {
     setTenzies(false);
     setDice(allNewDice());
+    setNumOfRolls(0);
   }
 
   function holdDice(id) {
