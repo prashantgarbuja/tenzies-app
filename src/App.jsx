@@ -8,6 +8,8 @@ export default function App() {
 
   const [tenzies, setTenzies] = React.useState(false);
 
+  const [numOfRolls, setNumOfRolls] = React.useState(0);
+
   React.useEffect(() => {
     if (dice.every((die) => die.value === dice[0].value && die.isHeld)) {
       setTenzies(true);
@@ -36,6 +38,8 @@ export default function App() {
         return die.isHeld ? die : generateNewDie();
       })
     );
+    setNumOfRolls((oldNumOfRolls) => oldNumOfRolls + 1);
+    //console.log(numOfRolls);
   }
   function resetDice() {
     setTenzies(false);
@@ -66,7 +70,8 @@ export default function App() {
         <h1 className="title">Tenzies</h1>
         <p className="instructions">
           Roll until all dice are the same. Click each die to freeze it at its
-          current value between rolls.
+          current value between rolls. <br />
+          <span className="rolls">Rolls: {numOfRolls}</span>
         </p>
         <div className="dice-container">{diceElements}</div>
         <button className="roll-dice" onClick={tenzies ? resetDice : rollDice}>
